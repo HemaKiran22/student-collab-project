@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollabConnect - Student Project Collaboration Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">CollabConnect</h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="showLogin()" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Login</button>
+                    <button onclick="showSignup()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Landing Page -->
+    <div id="landingPage" class="pt-16">
+        <!-- Hero Section -->
+        <section class="gradient-bg text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <h1 class="text-5xl font-bold leading-tight">
+                            Where Students Team Up to 
+                            <span class="text-yellow-300">Bring Ideas to Life</span>
+                        </h1>
+                        <p class="text-xl text-gray-200">
+                            Join the ultimate platform for student collaboration. Work on exciting projects, build teams, and create amazing things together with mentor guidance.
+                        </p>
+                        <div class="flex space-x-4">
+                            <button onclick="showSignup()" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 rounded-lg text-lg font-semibold">
+                                Get Started
+                            </button>
+                            <button class="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-lg text-lg font-semibold">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="animate-float">
+                            <div class="w-80 h-80 bg-white bg-opacity-10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                <i class="fas fa-users text-8xl text-yellow-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Choose CollabConnect?</h2>
+                    <p class="text-xl text-gray-600">Everything you need for successful student collaboration</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card-hover bg-gray-50 p-8 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-project-diagram text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Project Discovery</h3>
+                        <p class="text-gray-600">Browse and apply to exciting academic and extracurricular projects tailored to your interests.</p>
+                    </div>
+
+                    <div class="card-hover bg-gray-50 p-8 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-users text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Smart Team Formation</h3>
+                        <p class="text-gray-600">Get matched with teammates based on skills, academic level, and project interests.</p>
+                    </div>
+
+                    <div class="card-hover bg-gray-50 p-8 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Mentor Guidance</h3>
+                        <p class="text-gray-600">Work under the supervision of experienced mentors who guide you through the project.</p>
+                    </div>
+
+                    <div class="card-hover bg-gray-50 p-8 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-tasks text-2xl text-red-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Project Workspace</h3>
+                        <p class="text-gray-600">Dedicated workspace with task management, file sharing, and team communication tools.</p>
+                    </div>
+
+                    <div class="card-hover bg-gray-50 p-8 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-trophy text-2xl text-yellow-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Showcase Gallery</h3>
+                        <p class="text-gray-600">Display your completed projects and achievements in our public showcase gallery.</p>
+                    </div>
+
+                    <div class="card-hover bg-gray-50 p-8 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-certificate text-2xl text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Certificates</h3>
+                        <p class="text-gray-600">Earn participation certificates for your portfolio and academic records.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 gradient-bg text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold mb-4">Ready to Start Collaborating?</h2>
+                <p class="text-xl mb-8">Join thousands of students already working on amazing projects</p>
+                <button onclick="showSignup()" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 rounded-lg text-lg font-semibold">
+                    Join CollabConnect Today
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Login</h2>
+                <button onclick="hideLogin()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form onsubmit="handleLogin(event)">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                    <input type="email" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Enter your email">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                    <input type="password" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+                    Login
+                </button>
+            </form>
+            <div class="mt-4 text-center">
+                <p class="text-gray-600">Don't have an account? 
+                    <button onclick="showSignup(); hideLogin();" class="text-blue-600 hover:underline">Sign up</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 max-h-screen overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Sign Up</h2>
+                <button onclick="hideSignup()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form onsubmit="handleSignup(event)">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+                    <input type="text" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Enter your full name">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                    <input type="email" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Enter your email">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">University</label>
+                    <input type="text" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Enter your university">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Role</label>
+                    <select required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" onchange="toggleAcademicYear(this)">
+                        <option value="">Select your role</option>
+                        <option value="student">Student</option>
+                        <option value="mentor">Mentor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div id="academicYearField" class="mb-4 hidden">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Academic Year</label>
+                    <select class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+                        <option value="">Select year</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                        <option value="Graduate">Graduate</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Skills & Interests</label>
+                    <textarea class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" rows="3" placeholder="Describe your skills and interests"></textarea>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                    <input type="password" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+                    Sign Up
+                </button>
+            </form>
+            <div class="mt-4 text-center">
+                <p class="text-gray-600">Already have an account? 
+                    <button onclick="showLogin(); hideSignup();" class="text-blue-600 hover:underline">Login</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden pt-16">
+        <!-- Dashboard Header -->
+        <div class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-6">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Dashboard</h1>
+                        <p class="text-gray-600">Welcome back, <span id="userName">User</span>!</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium" id="userRole">Student</div>
+                        <button onclick="logout()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Student Dashboard -->
+            <div id="studentDashboard" class="hidden">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-project-diagram text-2xl text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Active Projects</p>
+                                <p class="text-2xl font-semibold text-gray-900">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-tasks text-2xl text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Tasks Completed</p>
+                                <p class="text-2xl font-semibold text-gray-900">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-users text-2xl text-purple-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Team Members</p>
+                                <p class="text-2xl font-semibold text-gray-900">8</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-certificate text-2xl text-yellow-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Certificates</p>
+                                <p class="text-2xl font-semibold text-gray-900">2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Available Projects -->
+                <div class="bg-white rounded-lg shadow mb-8">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h3 class="text-lg font-medium text-gray-900">Available Projects</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                                <h4 class="text-lg font-semibold mb-2">AI Chatbot Development</h4>
+                                <p class="text-gray-600 mb-3">Build an intelligent chatbot using natural language processing techniques.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">AI/ML</span>
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Apply</button>
+                                </div>
+                            </div>
+                            <div class="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                                <h4 class="text-lg font-semibold mb-2">Sustainable Energy Research</h4>
+                                <p class="text-gray-600 mb-3">Research renewable energy solutions for campus sustainability.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Research</span>
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Projects -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h3 class="text-lg font-medium text-gray-900">My Projects</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-blue-500 pl-4">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold">Mobile App Development</h4>
+                                        <p class="text-gray-600">Develop a cross-platform mobile application</p>
+                                        <div class="flex items-center mt-2">
+                                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm mr-2">In Progress</span>
+                                            <span class="text-sm text-gray-500">Mentor: Dr. Smith</span>
+                                        </div>
+                                    </div>
+                                    <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded">View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mentor Dashboard -->
+            <div id="mentorDashboard" class="hidden">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-chalkboard-teacher text-2xl text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Projects Mentoring</p>
+                                <p class="text-2xl font-semibold text-gray-900">5</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-users text-2xl text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Students Guided</p>
+                                <p class="text-2xl font-semibold text-gray-900">24</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check-circle text-2xl text-purple-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Completed Projects</p>
+                                <p class="text-2xl font-semibold text-gray-900">18</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-star text-2xl text-yellow-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Average Rating</p>
+                                <p class="text-2xl font-semibold text-gray-900">4.8</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assigned Projects -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h3 class="text-lg font-medium text-gray-900">My Mentoring Projects</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="border rounded-lg p-4">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold">AI Chatbot Development</h4>
+                                        <p class="text-gray-600">Team of 4 students working on NLP chatbot</p>
+                                        <div class="flex items-center mt-2">
+                                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm mr-2">Active</span>
+                                            <span class="text-sm text-gray-500">Progress: 65%</span>
+                                        </div>
+                                    </div>
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Manage</button>
+                                </div>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold">Sustainable Energy Research</h4>
+                                        <p class="text-gray-600">Research project on renewable energy solutions</p>
+                                        <div class="flex items-center mt-2">
+                                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm mr-2">Review</span>
+                                            <span class="text-sm text-gray-500">Progress: 90%</span>
+                                        </div>
+                                    </div>
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Manage</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Dashboard -->
+            <div id="adminDashboard" class="hidden">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-project-diagram text-2xl text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Total Projects</p>
+                                <p class="text-2xl font-semibold text-gray-900">15</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-users text-2xl text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Active Students</p>
+                                <p class="text-2xl font-semibold text-gray-900">89</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-chalkboard-teacher text-2xl text-purple-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Mentors</p>
+                                <p class="text-2xl font-semibold text-gray-900">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check-circle text-2xl text-yellow-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Completed</p>
+                                <p class="text-2xl font-semibold text-gray-900">8</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Quick Actions</h3>
+                        <div class="space-y-3">
+                            <button onclick="showCreateProject()" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-left">
+                                <i class="fas fa-plus mr-2"></i>Create New Project
+                            </button>
+                            <button onclick="showManageUsers()" class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-left">
+                                <i class="fas fa-users mr-2"></i>Manage Users
+                            </button>
+                            <button onclick="showTeamFormation()" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-left">
+                                <i class="fas fa-random mr-2"></i>Form Teams
+                            </button>
+                            <button onclick="showShowcase()" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg text-left">
+                                <i class="fas fa-trophy mr-2"></i>Showcase Gallery
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Recent Activity</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <span class="text-sm text-gray-600">New student application received</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                <span class="text-sm text-gray-600">Project "AI Chatbot" submitted</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                <span class="text-sm text-gray-600">Team formed for "Mobile App" project</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Management -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h3 class="text-lg font-medium text-gray-900">Project Management</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Students</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mentor</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm font-medium text-gray-900">AI Chatbot Development</div>
+                                            <div class="text-sm text-gray-500">Natural Language Processing</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">4</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Dr. Smith</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-blue-600 hover:text-blue-900 mr-3">Edit</button>
+                                            <button class="text-red-600 hover:text-red-900">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm font-medium text-gray-900">Sustainable Energy Research</div>
+                                            <div class="text-sm text-gray-500">Environmental Science</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">3</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Prof. Johnson</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Review</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-blue-600 hover:text-blue-900 mr-3">Edit</button>
+                                            <button class="text-red-600 hover:text-red-900">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Project Modal -->
+    <div id="createProjectModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Create New Project</h2>
+                <button onclick="hideCreateProject()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form onsubmit="handleCreateProject(event)">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Project Title</label>
+                        <input type="text" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Enter project title">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Category</label>
+                        <select required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+                            <option value="">Select category</option>
+                            <option value="AI/ML">AI/ML</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Mobile Development">Mobile Development</option>
+                            <option value="Research">Research</option>
+                            <option value="Design">Design</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                    <textarea required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" rows="4" placeholder="Describe the project"></textarea>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Team Size</label>
+                        <input type="number" required min="2" max="8" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="4">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Duration (weeks)</label>
+                        <input type="number" required min="1" max="52" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="8">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Assign Mentor</label>
+                        <select required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+                            <option value="">Select mentor</option>
+                            <option value="dr-smith">Dr. Smith</option>
+                            <option value="prof-johnson">Prof. Johnson</option>
+                            <option value="dr-williams">Dr. Williams</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Required Skills</label>
+                    <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="JavaScript, React, Node.js (comma separated)">
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" onclick="hideCreateProject()" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">Create Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Project Workspace Modal -->
+    <div id="projectWorkspace" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg max-w-6xl w-full mx-4 max-h-screen overflow-y-auto">
+            <div class="flex justify-between items-center p-6 border-b">
+                <h2 class="text-2xl font-bold">Project Workspace: AI Chatbot Development</h2>
+                <button onclick="hideProjectWorkspace()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left Column -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- Project Info -->
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="text-lg font-semibold mb-2">Project Overview</h3>
+                            <p class="text-gray-600 mb-3">Build an intelligent chatbot using natural language processing techniques for customer service automation.</p>
+                            <div class="flex items-center space-x-4">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">AI/ML</span>
+                                <span class="text-sm text-gray-500">Duration: 8 weeks</span>
+                                <span class="text-sm text-gray-500">Progress: 65%</span>
+                            </div>
+                        </div>
+
+                        <!-- Task List -->
+                        <div class="bg-white border rounded-lg">
+                            <div class="p-4 border-b">
+                                <h3 class="text-lg font-semibold">Tasks</h3>
+                            </div>
+                            <div class="p-4">
+                                <div class="space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <input type="checkbox" checked class="rounded">
+                                        <span class="line-through text-gray-500">Research NLP libraries</span>
+                                        <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Completed</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <input type="checkbox" checked class="rounded">
+                                        <span class="line-through text-gray-500">Design conversation flow</span>
+                                        <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Completed</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <input type="checkbox" class="rounded">
+                                        <span>Implement core chatbot logic</span>
+                                        <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">In Progress</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <input type="checkbox" class="rounded">
+                                        <span>Create user interface</span>
+                                        <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">Pending</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <input type="checkbox" class="rounded">
+                                        <span>Testing and optimization</span>
+                                        <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">Pending</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File Uploads -->
+                        <div class="bg-white border rounded-lg">
+                            <div class="p-4 border-b">
+                                <h3 class="text-lg font-semibold">Project Files</h3>
+                            </div>
+                            <div class="p-4">
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between p-2 hover:bg-gray-50 rounded">
+                                        <div class="flex items-center space-x-3">
+                                            <i class="fas fa-file-code text-blue-600"></i>
+                                            <span>chatbot_core.py</span>
+                                        </div>
+                                        <button class="text-blue-600 hover:text-blue-800">Download</button>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 hover:bg-gray-50 rounded">
+                                        <div class="flex items-center space-x-3">
+                                            <i class="fas fa-file-alt text-green-600"></i>
+                                            <span>project_requirements.docx</span>
+                                        </div>
+                                        <button class="text-blue-600 hover:text-blue-800">Download</button>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                                        <i class="fas fa-upload mr-2"></i>Upload File
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="space-y-6">
+                        <!-- Team Members -->
+                        <div class="bg-white border rounded-lg">
+                            <div class="p-4 border-b">
+                                <h3 class="text-lg font-semibold">Team Members</h3>
+                            </div>
+                            <div class="p-4">
+                                <div class="space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">JS</div>
+                                        <div>
+                                            <div class="font-medium">John Smith</div>
+                                            <div class="text-sm text-gray-500">Team Lead</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold">ED</div>
+                                        <div>
+                                            <div class="font-medium">Emily Davis</div>
+                                            <div class="text-sm text-gray-500">Developer</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold">MW</div>
+                                        <div>
+                                            <div class="font-medium">Mike Wilson</div>
+                                            <div class="text-sm text-gray-500">Researcher</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mentor -->
+                        <div class="bg-white border rounded-lg">
+                            <div class="p-4 border-b">
+                                <h3 class="text-lg font-semibold">Mentor</h3>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center text-white font-bold">DS</div>
+                                    <div>
+                                        <div class="font-medium">Dr. Smith</div>
+                                        <div class="text-sm text-gray-500">AI/ML Professor</div>
+                                    </div>
+                                </div>
+                                <button class="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                                    Contact Mentor
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quick Chat -->
+                        <div class="bg-white border rounded-lg">
+                            <div class="p-4 border-b">
+                                <h3 class="text-lg font-semibold">Team Chat</h3>
+                            </div>
+                            <div class="p-4">
+                                <div class="space-y-2 max-h-40 overflow-y-auto">
+                                    <div class="text-sm">
+                                        <span class="font-medium text-blue-600">John:</span>
+                                        <span class="text-gray-600">Started working on the NLP integration</span>
+                                    </div>
+                                    <div class="text-sm">
+                                        <span class="font-medium text-green-600">Emily:</span>
+                                        <span class="text-gray-600">Great! I'll handle the UI components</span>
+                                    </div>
+                                </div>
+                                <div class="mt-3 flex">
+                                    <input type="text" placeholder="Type a message..." class="flex-1 px-3 py-2 border rounded-l-lg focus:outline-none focus:border-blue-500">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg">
+                                        <i class="fas fa-send"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let currentUser = null;
+        let users = [];
+        let projects = [];
+
+        // Show/Hide functions
+        function showLogin() {
+            document.getElementById('loginModal').classList.remove('hidden');
+        }
+
+        function hideLogin() {
+            document.getElementById('loginModal').classList.add('hidden');
+        }
+
+        function showSignup() {
+            document.getElementById('signupModal').classList.remove('hidden');
+        }
+
+        function hideSignup() {
+            document.getElementById('signupModal').classList.add('hidden');
+        }
+
+        function showCreateProject() {
+            document.getElementById('createProjectModal').classList.remove('hidden');
+        }
+
+        function hideCreateProject() {
+            document.getElementById('createProjectModal').classList.add('hidden');
+        }
+
+        function showProjectWorkspace() {
+            document.getElementById('projectWorkspace').classList.remove('hidden');
+        }
+
+        function hideProjectWorkspace() {
+            document.getElementById('projectWorkspace').classList.add('hidden');
+        }
+
+        function toggleAcademicYear(select) {
+            const academicYearField = document.getElementById('academicYearField');
+            if (select.value === 'student') {
+                academicYearField.classList.remove('hidden');
+            } else {
+                academicYearField.classList.add('hidden');
+            }
+        }
+
+        // Authentication functions
+        function handleLogin(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const email = formData.get('email') || event.target.querySelector('input[type="email"]').value;
+            const password = formData.get('password') || event.target.querySelector('input[type="password"]').value;
+
+            // Simulate login (in real app, this would be an API call)
+            currentUser = {
+                name: "John Doe",
+                email: email,
+                role: "student", // This would come from the server
+                university: "Tech University"
+            };
+
+            hideLogin();
+            showDashboard();
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = {
+                name: form.querySelector('input[type="text"]').value,
+                email: form.querySelector('input[type="email"]').value,
+                university: form.querySelectorAll('input[type="text"]')[1].value,
+                role: form.querySelector('select').value,
+                skills: form.querySelector('textarea').value,
+                password: form.querySelector('input[type="password"]').value
+            };
+
+            // Simulate signup (in real app, this would be an API call)
+            currentUser = {
+                name: formData.name,
+                email: formData.email,
+                role: formData.role,
+                university: formData.university,
+                skills: formData.skills
+            };
+
+            hideSignup();
+            showDashboard();
+        }
+
+        function showDashboard() {
+            document.getElementById('landingPage').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            
+            // Update user info
+            document.getElementById('userName').textContent = currentUser.name;
+            document.getElementById('userRole').textContent = currentUser.role.charAt(0).toUpperCase() + currentUser.role.slice(1);
+
+            // Show appropriate dashboard
+            hideAllDashboards();
+            document.getElementById(currentUser.role + 'Dashboard').classList.remove('hidden');
+        }
+
+        function hideAllDashboards() {
+            document.getElementById('studentDashboard').classList.add('hidden');
+            document.getElementById('mentorDashboard').classList.add('hidden');
+            document.getElementById('adminDashboard').classList.add('hidden');
+        }
+
+        function logout() {
+            currentUser = null;
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('landingPage').classList.remove('hidden');
+        }
+
+        function handleCreateProject(event) {
+            event.preventDefault();
+            // Simulate project creation
+            alert('Project created successfully!');
+            hideCreateProject();
+        }
+
+        // Mock functions for admin actions
+        function showManageUsers() {
+            alert('User Management feature - View and manage all registered users');
+        }
+
+        function showTeamFormation() {
+            alert('Team Formation feature - Automatically assign students to project teams based on skills and preferences');
+        }
+
+        function showShowcase() {
+            alert('Showcase Gallery feature - View all completed projects and their presentations');
+        }
+
+        // Initialize demo data
+        function initializeDemoData() {
+            // This would normally come from a database
+            projects = [
+                {
+                    id: 1,
+                    title: "AI Chatbot Development",
+                    description: "Build an intelligent chatbot using NLP",
+                    category: "AI/ML",
+                    teamSize: 4,
+                    mentor: "Dr. Smith",
+                    status: "active"
+                },
+                {
+                    id: 2,
+                    title: "Sustainable Energy Research",
+                    description: "Research renewable energy solutions",
+                    category: "Research",
+                    teamSize: 3,
+                    mentor: "Prof. Johnson",
+                    status: "review"
+                }
+            ];
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDemoData();
+            
+            // Add event listeners for project workspace
+            document.querySelectorAll('button').forEach(button => {
+                if (button.textContent.includes('View') || button.textContent.includes('Manage')) {
+                    button.addEventListener('click', showProjectWorkspace);
+                }
+            });
+        });
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function(event) {
+            const modals = ['loginModal', 'signupModal', 'createProjectModal', 'projectWorkspace'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                if (event.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
